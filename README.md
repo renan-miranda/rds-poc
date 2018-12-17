@@ -6,13 +6,13 @@ Steps:
 
   - Create the S3 bucket and DynamoDB lock table for remote store
 
-    On bucket_s3:
+  On bucket_s3:
 
     $ terraform init
     $ terraform plan
     $ terraform apply
 
-    - Create the AWS environment using the remote store
+  - Create the AWS environment using the remote store
 
   On main:
 
