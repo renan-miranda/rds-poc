@@ -1,4 +1,3 @@
-# rds-poc
 RDS-POC
 
  - POC of remote store in Terraform with RDS and EC2 instances
@@ -13,9 +12,9 @@ Steps:
     $ terraform plan
     $ terraform apply
 
-  - Create the AWS environment using the remote store
+    - Create the AWS environment using the remote store
 
-    On main:
+  On main:
 
     - Fill the variables in vars.tf before anything
 
