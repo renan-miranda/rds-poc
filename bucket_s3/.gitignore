@@ -1,0 +1,5 @@
+terraform\.tfstate\.backup
+terraform\.tfstate
+.terraform/*
+*.retry
+\.terraform\.tfstate\.lock\.info
