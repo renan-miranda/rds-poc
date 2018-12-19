@@ -1,8 +1,8 @@
 #######################################################################
 # AWS Provider
 provider "aws" {
-    version = "~> 1.0"
-    region     = "us-east-1"
+  version = "~> 1.0"
+  region     = "us-east-1"
 }
 #######################################################################
 
@@ -20,8 +20,8 @@ terraform {
 #######################################################################
 # Creates a key pair to connect in your EC2 instances
 resource "aws_key_pair" "auth" {
- key_name = "${var.ssh_key_name}"
- public_key = "${file(var.ssh_public_key_path)}"
+  key_name = "${var.ssh_key_name}"
+  public_key = "${file(var.ssh_public_key_path)}"
 }
 #######################################################################
 
