@@ -1,1 +1,3 @@
-resources/* filter=git-crypt diff=git-crypt
+resources/*.txt filter=git-crypt diff=git-crypt
+resources/*.sh filter=git-crypt diff=git-crypt
+resources/*.tfvars filter=git-crypt diff=git-crypt
