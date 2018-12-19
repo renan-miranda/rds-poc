@@ -23,11 +23,6 @@ variable "postgre_passwd" {
   default = ""
 }
 
-# User data in base64 to start EC2 instance
-variable "user_data_base64" {
-  default = ""
-}
-
 data "aws_ami" "aws-linux2" {
   most_recent = true
 

@@ -220,6 +220,13 @@ resource "aws_db_instance" "postgres_rds_instance_01" {
 #######################################################################
 
 #######################################################################
+# Create a template file to store user_data for EC2 instance
+data "template_file" "user_data_file" {
+  template = "${file("${path.module}/../resources/user_data.txt")}"
+}
+#######################################################################
+
+#######################################################################
 # Creates a key pair to connect in your EC2 instances
 # EC2 instance
 resource "aws_instance" "rds-poc-ec2" {
@@ -229,7 +236,7 @@ resource "aws_instance" "rds-poc-ec2" {
   security_groups             = ["${aws_security_group.rds-poc-ec2-sg.id}"]
   associate_public_ip_address = "true"
   key_name                    = "${aws_key_pair.auth.key_name}"
-  user_data_base64            = "${var.user_data_base64}"
+  user_data                   = "${data.template_file.user_data_file.rendered}"
   
   root_block_device {
     volume_type = "gp2"
@@ -246,7 +253,7 @@ resource "aws_instance" "rds-poc-ec2" {
 #######################################################################
 # File with DB and EC2 addresses
 resource "local_file" "env_aws" {
-  filename = "./addresses.txt"
+  filename = "${path.module}/../resources/addresses.txt"
 
   content = <<-EOF
 RDS_PUBLIC_LB=${aws_db_instance.postgres_rds_instance_01.endpoint}
