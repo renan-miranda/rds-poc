@@ -55,8 +55,8 @@ POC of remote state in Terraform with RDS and EC2 instances
     ```
   - After, you can execute the following steps
     ```
-    $ terraform plan
-    $ terraform apply
+    $ terraform plan -var-file="../resources/main.tfvars
+    $ terraform apply -var-file="../resources/main.tfvars
     ```
 
 After the execution, the file "resources/addresses.txt" will be created in with RDS endpoint, DB name and EC2 public IP.
